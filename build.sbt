@@ -10,6 +10,8 @@ ThisBuild / developers := List(
 )
 ThisBuild / startYear := Some(2022)
 
+ThisBuild / tlSonatypeUseLegacyHost := false
+
 val Versions = new {
   val circe = "0.14.2"
   val discipline = "1.4.0"
