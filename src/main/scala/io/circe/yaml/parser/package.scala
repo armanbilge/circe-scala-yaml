@@ -52,7 +52,8 @@ package object parser {
       // TODO
       case Tag.int | Tag.float =>
         JsonNumber.fromString(node.value).map(Json.fromJsonNumber).toRight {
-          throw new NumberFormatException(s"Invalid numeric string ${node.value}")
+          val msg = s"Invalid numeric string ${node.value}"
+          ParsingFailure(msg, new NumberFormatException(msg))
         }
       case Tag.boolean =>
         YamlDecoder.given_YamlDecoder_Boolean
