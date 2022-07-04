@@ -26,16 +26,21 @@ ThisBuild / tlFatalWarningsInCi := false
 
 lazy val root = tlCrossRootProject.aggregate(scalaYaml)
 
-val scalaYaml = crossProject(JVMPlatform)
+val scalaYaml = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure)
   .in(file("scala-yaml"))
   .settings(
     name := "circe-scala-yaml",
     description := "Library for converting between Scala Yaml's AST and circe's AST",
+    scalacOptions ++= {
+      if (scalaBinaryVersion.value == "2.13")
+        List("-Ytasty-reader")
+      else Nil
+    },
     libraryDependencies ++= Seq(
       "io.circe" %% "circe-core" % Versions.circe,
       "io.circe" %% "circe-jawn" % Versions.circe % Test,
-      "org.virtuslab" %% "scala-yaml" % "0.0.4",
+      "org.virtuslab" %% "scala-yaml" % "0.0.4" cross CrossVersion.for2_13Use3,
       "io.circe" %% "circe-testing" % Versions.circe % Test,
       "org.typelevel" %% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
