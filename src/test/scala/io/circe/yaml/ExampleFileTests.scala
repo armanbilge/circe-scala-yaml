@@ -25,13 +25,13 @@ class ExampleFileTests extends AnyFreeSpec {
         def yamlReader = new InputStreamReader(yamlStream)
         val yaml = Source.fromInputStream(yamlStream).mkString
         val parsedYamlString = parser.parse(yaml)
-        val parsedStreamString = parser.parseDocuments(yaml)
-        val parsedYamlReader = parser.parse(yamlReader)
-        val parsedStreamReader = parser.parseDocuments(yamlReader)
+        // val parsedStreamString = parser.parseDocuments(yaml)
+        // val parsedYamlReader = parser.parse(yamlReader)
+        // val parsedStreamReader = parser.parseDocuments(yamlReader)
         assert(parsedJson == parsedYamlString)
-        assert(parsedJson == parsedStreamString.head)
-        assert(parsedJson == parsedYamlReader)
-        assert(parsedJson == parsedStreamReader.head)
+        // assert(parsedJson == parsedStreamString.head)
+        // assert(parsedJson == parsedYamlReader)
+        // assert(parsedJson == parsedStreamReader.head)
       }
     }
   }

@@ -26,7 +26,8 @@ package object parser {
   //   json <- yamlToJson(parsed)
   // } yield json
 
-  // def parse(yaml: String): Either[ParsingFailure, Json] = parse(new StringReader(yaml))
+  def parse(yaml: String): Either[ParsingFailure, Json] =
+    asNode(yaml).leftMap(e => ParsingFailure(e.msg, WrappedYamlError(e))).flatMap(yamlToJson(_))
 
   // def parseDocuments(yaml: Reader): Stream[Either[ParsingFailure, Json]] = parseStream(yaml).map(yamlToJson)
   // def parseDocuments(yaml: String): Stream[Either[ParsingFailure, Json]] = parseDocuments(new StringReader(yaml))
