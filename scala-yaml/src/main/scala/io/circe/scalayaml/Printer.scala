@@ -56,7 +56,7 @@ final case class Printer(
       val m = obj.toMap
       val childNodes: Map[Node, Node] = fields.flatMap { key =>
         val value = m(key)
-        if (!dropNullKeys || !value.isNull) Some((keyNode(key) -> jsonToYaml(value)))
+        if (!dropNullKeys || !value.isNull) Some(keyNode(key) -> jsonToYaml(value))
         else None
       }.toMap
       MappingNode(childNodes)
