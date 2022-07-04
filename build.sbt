@@ -24,7 +24,7 @@ val Versions = new {
 
 val docMappingsApiDir = settingKey[String]("Subdirectory in site target directory for API docs")
 
-ThisBuild / crossScalaVersions := Seq("2.12.15", "2.13.7", "3.0.2")
+scalaVersion := "3.1.3"
 
 val root = project
   .in(file("."))
@@ -57,6 +57,7 @@ val root = project
       "io.circe" %% "circe-core" % Versions.circe,
       "io.circe" %% "circe-jawn" % Versions.circe % Test,
       "org.yaml" % "snakeyaml" % Versions.snakeYaml,
+      "org.virtuslab" %% "scala-yaml" % "0.0.4",
       "io.circe" %% "circe-testing" % Versions.circe % Test,
       "org.typelevel" %% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
