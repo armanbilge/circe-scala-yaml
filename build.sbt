@@ -11,7 +11,7 @@ ThisBuild / developers := List(
 ThisBuild / startYear := Some(2022)
 
 val Versions = new {
-  val circe = "0.14.1"
+  val circe = "0.14.2"
   val discipline = "1.4.0"
   val scalaCheck = "1.15.4"
   val scalaTest = "3.2.11"
@@ -38,13 +38,13 @@ val scalaYaml = crossProject(JVMPlatform, JSPlatform)
       else Nil
     },
     libraryDependencies ++= Seq(
-      "io.circe" %% "circe-core" % Versions.circe,
-      "io.circe" %% "circe-jawn" % Versions.circe % Test,
-      "org.virtuslab" %% "scala-yaml" % "0.0.4" cross CrossVersion.for2_13Use3,
-      "io.circe" %% "circe-testing" % Versions.circe % Test,
-      "org.typelevel" %% "discipline-core" % Versions.discipline % Test,
-      "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
-      "org.scalatest" %% "scalatest" % Versions.scalaTest % Test,
-      "org.scalatestplus" %% "scalacheck-1-15" % Versions.scalaTestPlus % Test
+      "io.circe" %%% "circe-core" % Versions.circe,
+      "io.circe" %%% "circe-jawn" % Versions.circe % Test,
+      "org.virtuslab" %%% "scala-yaml" % "0.0.4" cross CrossVersion.for2_13Use3,
+      "io.circe" %%% "circe-testing" % Versions.circe % Test,
+      "org.typelevel" %%% "discipline-core" % Versions.discipline % Test,
+      "org.scalacheck" %%% "scalacheck" % Versions.scalaCheck % Test,
+      "org.scalatest" %%% "scalatest" % Versions.scalaTest % Test,
+      "org.scalatestplus" %%% "scalacheck-1-15" % Versions.scalaTestPlus % Test
     )
   )
