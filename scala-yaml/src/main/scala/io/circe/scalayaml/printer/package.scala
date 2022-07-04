@@ -14,33 +14,14 @@
  * limitations under the License.
  */
 
-package io.circe.yaml
+package io.circe.scalayaml
 
 import io.circe.Json
-import org.scalatest.flatspec.AnyFlatSpec
-import syntax._
-import org.scalatest.matchers.should.Matchers
 
-class SyntaxTests extends AnyFlatSpec with Matchers {
+package object printer {
 
-  val json = Json.obj(
-    "foo" -> Json.obj(
-      "bar" -> Json.fromString("baz")
-    )
-  )
-
-  "spaces2" should "have double space indent" in {
-    json.asYaml.spaces2 shouldEqual
-      """foo:
-        |  bar: baz
-        |""".stripMargin
-  }
-
-  "spaces4" should "have quadruple space indent" in {
-    json.asYaml.spaces4 shouldEqual
-      """foo:
-        |    bar: baz
-        |""".stripMargin
-  }
-
+  /**
+   * A default printer implementation using Snake YAML.
+   */
+  def print(tree: Json): String = Printer.spaces2.pretty(tree)
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.circe.yaml
+package io.circe.scalayaml
 
 import Printer._
 import io.circe._

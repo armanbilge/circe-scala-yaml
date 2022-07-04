@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.circe.yaml
+package io.circe.scalayaml
 
 import io.circe.Json
-import io.circe.yaml.Printer.{ FlowStyle, LineBreak, StringStyle, YamlVersion }
+import io.circe.scalayaml.Printer.{ FlowStyle, LineBreak, StringStyle, YamlVersion }
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.should.Matchers
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.circe.yaml
+package io.circe.scalayaml
 
 import io.circe.Encoder
 import org.scalatest.flatspec.AnyFlatSpec
@@ -25,8 +25,8 @@ import org.scalatest.matchers.should.Matchers
 class EscapingTests extends AnyFlatSpec with Matchers with ScalaCheckDrivenPropertyChecks {
 
   import io.circe.syntax._
-  import io.circe.yaml.Printer.spaces2.pretty
-  import io.circe.yaml.parser.parse
+  import io.circe.scalayaml.Printer.spaces2.pretty
+  import io.circe.scalayaml.parser.parse
 
   // according to the YAML spec (section 5.1: character set)
   def isPrintable(c: Char): Boolean =
