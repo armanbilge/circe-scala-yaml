@@ -42,7 +42,7 @@ val scalaYaml = crossProject(JVMPlatform, JSPlatform)
     libraryDependencies ++= Seq(
       "io.circe" %%% "circe-core" % Versions.circe,
       "io.circe" %%% "circe-jawn" % Versions.circe % Test,
-      "org.virtuslab" %%% "scala-yaml" % "0.0.4" cross CrossVersion.for2_13Use3,
+      "org.virtuslab" %%% "scala-yaml" % "0.0.5" cross CrossVersion.for2_13Use3,
       "io.circe" %%% "circe-testing" % Versions.circe % Test,
       "org.typelevel" %%% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %%% "scalacheck" % Versions.scalaCheck % Test,
