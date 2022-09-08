@@ -40,7 +40,7 @@ final case class Printer(
 ) {
 
   def pretty(json: Json): String =
-    asYaml(jsonToYaml(json))
+    jsonToYaml(json).asYaml
 
   private def isBad(s: String): Boolean = s.indexOf('\u0085') >= 0 || s.indexOf('\ufeff') >= 0
   private def hasNewline(s: String): Boolean = s.indexOf('\n') >= 0

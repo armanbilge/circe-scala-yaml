@@ -40,7 +40,7 @@ package object parser {
   // } yield json
 
   def parse(yaml: String): Either[ParsingFailure, Json] =
-    asNode(yaml).leftMap(e => ParsingFailure(e.msg, WrappedYamlError(e))).flatMap(yamlToJson(_))
+    yaml.asNode.leftMap(e => ParsingFailure(e.msg, WrappedYamlError(e))).flatMap(yamlToJson(_))
 
   // def parseDocuments(yaml: Reader): Stream[Either[ParsingFailure, Json]] = parseStream(yaml).map(yamlToJson)
   // def parseDocuments(yaml: String): Stream[Either[ParsingFailure, Json]] = parseDocuments(new StringReader(yaml))
@@ -69,7 +69,7 @@ package object parser {
           ParsingFailure(msg, new NumberFormatException(msg))
         }
       case Tag.boolean =>
-        YamlDecoder.given_YamlDecoder_Boolean
+        YamlDecoder.forBoolean
           .construct(node)
           .leftMap(e => ParsingFailure(e.msg, WrappedYamlError(e)))
           .map(Json.fromBoolean(_))
