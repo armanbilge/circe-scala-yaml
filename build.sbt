@@ -29,7 +29,7 @@ ThisBuild / tlFatalWarningsInCi := false
 
 lazy val root = tlCrossRootProject.aggregate(scalaYaml)
 
-val scalaYaml = crossProject(JVMPlatform, JSPlatform)
+val scalaYaml = crossProject(JVMPlatform, JSPlatform, NativePlatform)
   .crossType(CrossType.Pure)
   .in(file("scala-yaml"))
   .settings(
