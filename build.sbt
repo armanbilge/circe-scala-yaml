@@ -18,7 +18,7 @@ val Versions = new {
   val discipline = "1.5.1"
   val scalaCheck = "1.17.0"
   val scalaTest = "3.2.13"
-  val scalaTestPlus = "3.2.11.0"
+  val scalaTestPlus = "3.2.13.0"
   val snakeYaml = "1.28"
   val previousCirceYaml = "0.13.1"
 }
@@ -48,6 +48,6 @@ val scalaYaml = crossProject(JVMPlatform, JSPlatform, NativePlatform)
       "org.typelevel" %%% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %%% "scalacheck" % Versions.scalaCheck % Test,
       "org.scalatest" %%% "scalatest" % Versions.scalaTest % Test,
-      "org.scalatestplus" %%% "scalacheck-1-15" % Versions.scalaTestPlus % Test
+      "org.scalatestplus" %%% "scalacheck-1-16" % Versions.scalaTestPlus % Test
     )
   )
