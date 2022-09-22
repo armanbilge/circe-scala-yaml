@@ -11,7 +11,7 @@ ThisBuild / developers := List(
 ThisBuild / startYear := Some(2022)
 
 ThisBuild / tlSonatypeUseLegacyHost := false
-ThisBuild / tlVersionIntroduced := Map("2.13" -> "0.0.3")
+ThisBuild / tlVersionIntroduced := List("2.13", "3").map(_ -> "0.0.3").toMap
 
 val Versions = new {
   val circe = "0.14.3"
