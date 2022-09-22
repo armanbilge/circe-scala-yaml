@@ -11,14 +11,14 @@ ThisBuild / developers := List(
 ThisBuild / startYear := Some(2022)
 
 ThisBuild / tlSonatypeUseLegacyHost := false
-ThisBuild / tlVersionIntroduced := Map("2.13" -> "0.0.2")
+ThisBuild / tlVersionIntroduced := List("2.13", "3").map(_ -> "0.0.3").toMap
 
 val Versions = new {
   val circe = "0.14.3"
   val discipline = "1.5.1"
   val scalaCheck = "1.17.0"
   val scalaTest = "3.2.13"
-  val scalaTestPlus = "3.2.11.0"
+  val scalaTestPlus = "3.2.13.0"
   val snakeYaml = "1.28"
   val previousCirceYaml = "0.13.1"
 }
@@ -29,7 +29,7 @@ ThisBuild / tlFatalWarningsInCi := false
 
 lazy val root = tlCrossRootProject.aggregate(scalaYaml)
 
-val scalaYaml = crossProject(JVMPlatform, JSPlatform)
+val scalaYaml = crossProject(JVMPlatform, JSPlatform, NativePlatform)
   .crossType(CrossType.Pure)
   .in(file("scala-yaml"))
   .settings(
@@ -48,6 +48,6 @@ val scalaYaml = crossProject(JVMPlatform, JSPlatform)
       "org.typelevel" %%% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %%% "scalacheck" % Versions.scalaCheck % Test,
       "org.scalatest" %%% "scalatest" % Versions.scalaTest % Test,
-      "org.scalatestplus" %%% "scalacheck-1-15" % Versions.scalaTestPlus % Test
+      "org.scalatestplus" %%% "scalacheck-1-16" % Versions.scalaTestPlus % Test
     )
   )
