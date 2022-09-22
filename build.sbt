@@ -23,7 +23,7 @@ val Versions = new {
   val previousCirceYaml = "0.13.1"
 }
 
-ThisBuild / crossScalaVersions := List("2.13.8", "3.2.0")
+ThisBuild / crossScalaVersions := List("2.13.8", "3.1.3")
 
 ThisBuild / tlFatalWarningsInCi := false
 
