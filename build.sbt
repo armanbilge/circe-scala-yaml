@@ -19,8 +19,7 @@ val Versions = new {
   val scalaCheck = "1.17.0"
   val scalaTest = "3.2.14"
   val scalaTestPlus = "3.2.14.0"
-  val snakeYaml = "1.28"
-  val previousCirceYaml = "0.13.1"
+  val scalaYaml = "0.0.6"
 }
 
 ThisBuild / crossScalaVersions := List("2.13.10", "3.2.0")
@@ -42,8 +41,8 @@ val scalaYaml = crossProject(JVMPlatform, JSPlatform, NativePlatform)
     },
     libraryDependencies ++= Seq(
       "io.circe" %%% "circe-core" % Versions.circe,
+      "org.virtuslab" %%% "scala-yaml" % Versions.scalaYaml,
       "io.circe" %%% "circe-jawn" % Versions.circe % Test,
-      "org.virtuslab" %%% "scala-yaml" % "0.0.5" cross CrossVersion.for2_13Use3,
       "io.circe" %%% "circe-testing" % Versions.circe % Test,
       "org.typelevel" %%% "discipline-core" % Versions.discipline % Test,
       "org.scalacheck" %%% "scalacheck" % Versions.scalaCheck % Test,
