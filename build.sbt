@@ -22,7 +22,7 @@ val Versions = new {
   val scalaYaml = "0.0.6"
 }
 
-ThisBuild / crossScalaVersions := List("2.13.10", "3.2.0")
+ThisBuild / crossScalaVersions := List("2.13.10", "3.2.1")
 
 ThisBuild / tlFatalWarningsInCi := false
 
