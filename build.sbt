@@ -14,7 +14,7 @@ ThisBuild / tlSonatypeUseLegacyHost := false
 ThisBuild / tlVersionIntroduced := List("2.13", "3").map(_ -> "0.0.3").toMap
 
 val Versions = new {
-  val circe = "0.14.3"
+  val circe = "0.14.4"
   val discipline = "1.5.1"
   val scalaCheck = "1.17.0"
   val scalaTest = "3.2.15"
